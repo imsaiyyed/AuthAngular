@@ -1,0 +1,59 @@
+<h3>Welcome</h3>
+<label>{{userName}}</label><br>
+<router-outlet></router-outlet>
+
+
+<div *ngIf="userName=='user1'">
+    <p>
+        user 1
+      </p>
+  </div>
+  <div *ngIf="userName=='user2'">
+      <p>
+          user 2
+        </p>
+    </div>
+    <div *ngIf="userName=='admin'">
+        <p>
+            admin
+          </p>
+      </div>
+      <div *ngIf="userName=='user1'">
+      <div class="row content" >
+          <div class="col-sm-3">
+            <nav class="nav flex-column blue lighten-5 py-4">
+              <a class="nav-link" href="#">Menu</a>
+              <a class="nav-link" href="./home">Home</a>
+              <a  [routerLink]="['./user1', userName]">User1 Page</a>
+              <!-- <a class="nav-link" href="./user1">User1 Page</a> -->
+          </nav>
+        </div>
+      </div>
+      </div>
+      <div *ngIf="userName=='user2'">
+
+        <div class="row content" *ngIf="userName=='user2'">
+            <div class="col-sm-3">
+              <nav class="nav flex-column blue lighten-5 py-4">
+                <a class="nav-link" href="#">Menu</a>
+                <a class="nav-link" href="./home">Home</a>
+                <a  [routerLink]="['./user2', userName]">User2 Page</a>
+      
+            </nav>
+          </div>
+          </div>
+          </div>
+          <div *ngIf="userName=='admin'">
+
+          <div class="row content">
+              <div class="col-sm-3">
+                <nav class="nav flex-column blue lighten-5 py-4">
+                  <a class="nav-link" href="#">Menu</a>
+                  <a class="nav-link" href="./home">Home</a>
+                  <a  [routerLink]="['./admin', userName]">Admin Page</a>
+      
+              </nav>
+            </div>
+            </div>
+            </div>
+      <button (click)="userLogOut()">Log Out</button>
